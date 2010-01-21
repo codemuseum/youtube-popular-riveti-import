@@ -1,7 +1,7 @@
 class CreateCrawls < ActiveRecord::Migration
   def self.up
     create_table :crawls do |t|
-      t.text :url
+      t.text :urls
 
       t.timestamps
     end
