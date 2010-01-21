@@ -1,0 +1,12 @@
+development:
+  api_key: provided by riveti.com
+  secret_key: provided by riveti.com
+
+test:
+  api_key: provided by riveti.com
+  secret_key: provided by riveti.com
+
+production:
+  api_key: provided by riveti.com
+  secret_key: provided by riveti.com
+

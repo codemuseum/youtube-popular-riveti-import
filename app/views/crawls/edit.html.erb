@@ -1,0 +1,16 @@
+<h1>Editing crawl</h1>
+
+<% form_for(@crawl) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_area :url %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @crawl %> |
+<%= link_to 'Back', crawls_path %>

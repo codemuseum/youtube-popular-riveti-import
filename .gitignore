@@ -1,0 +1,7 @@
+tmtags
+db/test.sqlite3
+db/development.sqlite3
+db/schema.rb
+*/.DS_Store
+log/test.log
+log/development.log

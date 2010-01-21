@@ -1,0 +1,12 @@
+development:
+  api_key: 3345a48bf8b99f1d893e8051115ebe6cfed1da3a
+  secret_key: 232dc3bd8330dcad42ea8ad86028b64d9f953745
+
+test:
+  api_key: provided by riveti.com
+  secret_key: provided by riveti.com
+
+production:
+  api_key: 3345a48bf8b99f1d893e8051115ebe6cfed1da3a
+  secret_key: 232dc3bd8330dcad42ea8ad86028b64d9f953745
+
