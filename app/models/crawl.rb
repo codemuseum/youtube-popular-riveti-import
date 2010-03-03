@@ -51,13 +51,14 @@ class Crawl < ActiveRecord::Base
     video_links.each do |video_a|
       url = video_a.attributes['href']
       runtime_text = (video_a/'.video-time').inner_text
-      parsed_videos << parse_video_url(url, runtime_text) unless Crawl.first.urls.include?(url)
+      picture = (video_a/'img')[0]
+      parsed_videos << parse_video_url(url, runtime_text, picture) unless Crawl.first.urls.include?(url)
     end
 
     parsed_videos
   end
 
-  def self.parse_video_url(video_url, runtime_text)
+  def self.parse_video_url(video_url, runtime_text, picture)
     page = Hpricot(open("#{BASE_URL}#{video_url}"))
     # Make nil checking easier
     category = (page/'a#watch-video-category')[0]
@@ -74,7 +75,8 @@ class Crawl < ActiveRecord::Base
       :vid => video_url['/watch?v='.length..-1],
       :description => description ? truncate(description.inner_text, 255) : nil,
       :popularity_rank => popularity_count,
-      :length_in_seconds => convert_string_to_seconds(runtime_text)
+      :length_in_seconds => convert_string_to_seconds(runtime_text),
+      :picture_hotlink => picture ? picture.attributes['src'] : nil
     }
 
     Crawl.first.update_attribute(:urls, "#{video_url}|#{Crawl.first.urls}")
